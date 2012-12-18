@@ -20,7 +20,7 @@ import com.morevaadin.vaadin7.custom.BootstrapButton.Type;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CustomComponent;
-import com.vaadin.ui.Root;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
@@ -56,6 +56,6 @@ public class CustomComponentView extends CustomComponent {
 
 	public void showClick() {
 
-		Root.getCurrentRoot().showNotification("I was clicked");
+		UI.getCurrent().showNotification("I was clicked");
 	}
 }

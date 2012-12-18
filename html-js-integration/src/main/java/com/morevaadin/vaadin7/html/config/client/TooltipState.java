@@ -15,7 +15,7 @@
  */
 package com.morevaadin.vaadin7.html.config.client;
 
-import com.vaadin.terminal.gwt.client.communication.SharedState;
+import com.vaadin.shared.communication.SharedState;
 
 @SuppressWarnings("serial")
 public class TooltipState extends SharedState {

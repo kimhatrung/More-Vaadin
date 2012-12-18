@@ -15,7 +15,7 @@
  */
 package com.morevaadin.vaadin7.html.basic;
 
-import com.vaadin.terminal.ExternalResource;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.Panel;

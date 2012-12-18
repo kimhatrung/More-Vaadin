@@ -18,16 +18,16 @@ package com.morevaadin.vaadin7.html;
 import com.morevaadin.vaadin7.html.basic.BasicHtmlIntegrationView;
 import com.morevaadin.vaadin7.html.config.ConfigurableHtmlIntegrationView;
 import com.morevaadin.vaadin7.html.js.JavascriptIntegrationView;
-import com.vaadin.terminal.WrappedRequest;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Root;
 import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.UI;
 
 @SuppressWarnings("serial")
-public class HtmlIntegrationRoot extends Root {
+public class HtmlIntegrationRoot extends UI {
 
     @Override
-    protected void init(WrappedRequest request) {
+    protected void init(VaadinRequest request) {
 
 	getPage().setTitle("HTML JavaScript integration examples");
 

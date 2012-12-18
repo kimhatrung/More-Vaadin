@@ -15,7 +15,8 @@
  */
 package com.morevaadin.vaadin7.html.js.client;
 
-import com.vaadin.terminal.gwt.client.JavaScriptExtensionState;
+import com.vaadin.shared.JavaScriptExtensionState;
+
 
 @SuppressWarnings("serial")
 public class BootstrapTooltipState extends JavaScriptExtensionState {

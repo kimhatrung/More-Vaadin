@@ -15,7 +15,7 @@
  */
 package com.morevaadin.vaadin7.html.basic;
 
-import com.vaadin.terminal.AbstractExtension;
+import com.vaadin.server.AbstractExtension;
 import com.vaadin.ui.Link;
 
 @SuppressWarnings("serial")

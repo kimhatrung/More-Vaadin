@@ -5,9 +5,9 @@
 	version="2.5">
 	<servlet>
 		<servlet-name>VaadinServlet</servlet-name>
-		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
 		<init-param>
-			<param-name>root</param-name>
+			<param-name>UI</param-name>
 			<param-value>com.morevaadin.vaadin7.html.HtmlIntegrationRoot</param-value>
 		</init-param>
 		<init-param>

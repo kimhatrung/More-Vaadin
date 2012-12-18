@@ -22,11 +22,11 @@ import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.morevaadin.vaadin7.html.basic.BasicTooltipExtension;
-import com.vaadin.terminal.gwt.client.ComponentConnector;
-import com.vaadin.terminal.gwt.client.ServerConnector;
-import com.vaadin.terminal.gwt.client.extensions.AbstractExtensionConnector;
-import com.vaadin.terminal.gwt.client.ui.Connect;
-import com.vaadin.terminal.gwt.client.ui.VOverlay;
+import com.vaadin.client.ComponentConnector;
+import com.vaadin.client.ServerConnector;
+import com.vaadin.client.extensions.AbstractExtensionConnector;
+import com.vaadin.client.ui.VOverlay;
+import com.vaadin.shared.ui.Connect;
 
 @SuppressWarnings("serial")
 @Connect(BasicTooltipExtension.class)
