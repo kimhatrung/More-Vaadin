@@ -1,8 +1,10 @@
 package org.vaadin.blog;
 
-@SuppressWarnings("serial")
-@com.vaadin.annotations.JavaScript({ "js_label.js" })
-public class JsLabel extends com.vaadin.ui.AbstractJavaScriptComponent {
+import com.vaadin.annotations.JavaScript;
+import com.vaadin.ui.AbstractJavaScriptComponent;
+
+@JavaScript({ "js_label.js" })
+public class JsLabel extends AbstractJavaScriptComponent {
 
     public JsLabel(final String xhtml) {
         getState().xhtml = xhtml;

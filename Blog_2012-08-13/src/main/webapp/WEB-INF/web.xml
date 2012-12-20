@@ -14,7 +14,7 @@
 			<description>
 			Vaadin root class to use</description>
 			<param-name>UI</param-name>
-			<param-value>org.vaadin.blog.ExampleRoot</param-value>
+			<param-value>org.vaadin.example.ExampleUI</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>

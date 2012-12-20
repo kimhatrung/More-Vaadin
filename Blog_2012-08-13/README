@@ -1,3 +1,9 @@
 https://vaadin.com/blog/-/blogs/vaadin-7-loves-javascript-components
 
 This is source from the blog, converted to a maven project.
+
+CHANGES:
+
+- Added https://vaadin.com/wiki/-/wiki/Main/Integrating+a+JavaScript+component
+  (with http://www.flotcharts.org/ version 0.7 (f0e78fc))
+
