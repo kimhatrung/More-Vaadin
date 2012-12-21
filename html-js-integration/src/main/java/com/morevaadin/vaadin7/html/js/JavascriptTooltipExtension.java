@@ -24,7 +24,8 @@ import com.vaadin.server.Resource;
 import com.vaadin.ui.Link;
 
 @SuppressWarnings("serial")
-@JavaScript({ "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js", "bootstrap.js", "bootstrap_connector.js" })
+// @JavaScript({ "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js", "bootstrap.js", "bootstrap_connector.js" })
+@JavaScript({ "jquery.js", "bootstrap.js", "bootstrap_connector.js" })
 public class JavascriptTooltipExtension extends AbstractJavaScriptExtension {
 
     public void extend(Link link) {
@@ -38,7 +39,7 @@ public class JavascriptTooltipExtension extends AbstractJavaScriptExtension {
 
     protected void attachTooltip(Object... commandAndArguments) {
     	
-    	callFunction("attach", commandAndArguments);
+    	// callFunction("attach", commandAndArguments);
     }
 
     @Override

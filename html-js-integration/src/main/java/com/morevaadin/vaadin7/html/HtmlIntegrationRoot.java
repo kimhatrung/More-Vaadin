@@ -26,23 +26,20 @@ import com.vaadin.ui.UI;
 @SuppressWarnings("serial")
 public class HtmlIntegrationRoot extends UI {
 
-    @Override
-    protected void init(VaadinRequest request) {
+	@Override
+	protected void init(VaadinRequest request) {
 
-	getPage().setTitle("HTML JavaScript integration examples");
+		getPage().setTitle("HTML JavaScript integration examples");
+		
+		HorizontalLayout layout = new HorizontalLayout();
+		layout.setSizeFull();
+		setContent(layout);
 
-	HorizontalLayout layout = new HorizontalLayout();
+		TabSheet tabsheet = new TabSheet();
+		layout.addComponent(tabsheet);
 
-	layout.setSizeFull();
-
-	setContent(layout);
-
-	TabSheet tabsheet = new TabSheet();
-
-	layout.addComponent(tabsheet);
-
-	tabsheet.addTab(new BasicHtmlIntegrationView()).setCaption("Basic HTML");
-	tabsheet.addTab(new ConfigurableHtmlIntegrationView()).setCaption("Configurable HTML");
-	tabsheet.addTab(new JavascriptIntegrationView()).setCaption("Javascript");
-    }
+		// tabsheet.addTab(new BasicHtmlIntegrationView()).setCaption("Basic HTML");
+		// tabsheet.addTab(new ConfigurableHtmlIntegrationView()).setCaption("Configurable HTML");
+		// tabsheet.addTab(new JavascriptIntegrationView()).setCaption("Javascript");
+	}
 }
