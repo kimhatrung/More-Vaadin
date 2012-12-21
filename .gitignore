@@ -3,9 +3,12 @@
 .settings
 target/
 rebel.xml
+VAADIN
 src/main/webapp/VAADIN/gwt-unitCache/
 src/main/webapp/VAADIN/widgetsets/
 src/main/webapp/VAADIN/widgetsets/WEB-INF/
 *~
 
 /html-js-integration/src/main/webapp/VAADIN/widgetsets/com.morevaadin.vaadin7.html.HtmlWidgetset
+/html-js-integration/src/main/webapp/VAADIN/gwt-unitCache/
+/html-js-integration/src/main/webapp/VAADIN/widgetsets/WEB-INF/

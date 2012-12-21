@@ -15,10 +15,11 @@
  */
 package com.morevaadin.vaadin7.custom.client.ui;
 
-import com.vaadin.shared.ComponentState;
+import com.vaadin.shared.AbstractComponentState;
+import com.vaadin.shared.ui.button.ButtonState;
 
 @SuppressWarnings("serial")
-public class BootstrapButtonState extends ComponentState {
+public class BootstrapButtonState extends AbstractComponentState {
 
 	private String text = "";
 

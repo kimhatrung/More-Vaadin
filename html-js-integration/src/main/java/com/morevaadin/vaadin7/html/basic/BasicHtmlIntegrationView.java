@@ -23,19 +23,19 @@ import com.vaadin.ui.Panel;
 @SuppressWarnings("serial")
 public class BasicHtmlIntegrationView extends Panel {
 
-    public BasicHtmlIntegrationView() {
+	public BasicHtmlIntegrationView() {
 
-	FormLayout layout = new FormLayout();
+		FormLayout layout = new FormLayout();
 
-	addComponent(layout);
+		setContent(layout);
 
-	Link blog = new Link("A Java Geek", new ExternalResource("http://blog.frankel.ch/"));
-	Link morevaadin = new Link("More Vaadin", new ExternalResource("http://morevaadin.com/"));
-	
-	new BasicTooltipExtension().extend(blog);
-	new BasicTooltipExtension().extend(morevaadin);
+		Link blog = new Link("A Java Geek", new ExternalResource("http://blog.frankel.ch/"));
+		Link morevaadin = new Link("More Vaadin", new ExternalResource("http://morevaadin.com/"));
 
-	layout.addComponent(blog);
-	layout.addComponent(morevaadin);
-    }
+		new BasicTooltipExtension().extend(blog);
+		new BasicTooltipExtension().extend(morevaadin);
+
+		layout.addComponent(blog);
+		layout.addComponent(morevaadin);
+	}
 }

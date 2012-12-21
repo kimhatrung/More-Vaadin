@@ -27,7 +27,7 @@ public class JavascriptIntegrationView extends Panel {
 
 	FormLayout layout = new FormLayout();
 
-	addComponent(layout);
+	setContent(layout);
 
 	Link blog = new Link("A Java Geek", new ExternalResource("http://blog.frankel.ch/"));
 	Link morevaadin = new Link("More Vaadin", new ExternalResource("http://morevaadin.com/"));
