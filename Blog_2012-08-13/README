@@ -7,3 +7,7 @@ CHANGES:
 - Added https://vaadin.com/wiki/-/wiki/Main/Integrating+a+JavaScript+component
   (with http://www.flotcharts.org/ version 0.7 (f0e78fc))
 
+- Added https://vaadin.com/wiki/-/wiki/Main/Using%20a%20JavaScript%20library%20or%20a%20style%20sheet%20in%20an%20add-on
+
+- Added https://vaadin.com/wiki/-/wiki/Main/Exposing%20server%20side%20API%20to%20JavaScript
+
