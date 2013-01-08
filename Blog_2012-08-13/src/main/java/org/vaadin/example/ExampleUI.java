@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.vaadin.blog.JsLabel;
 import org.vaadin.wiki.css.RedButton;
 import org.vaadin.wiki.flot.JsFlot;
+import org.vaadin.wiki.ga.Analytics;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
@@ -16,8 +17,15 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 public class ExampleUI extends UI {
+	
+	private Analytics googleAnalytics;
+	
 	@Override
 	public void init(final VaadinRequest request) {
+		googleAnalytics = new Analytics("test");
+		googleAnalytics.trackPageview("home");
+		addExtension(googleAnalytics);
+		
 		// https://vaadin.com/wiki/-/wiki/Main/Exposing%20server%20side%20API%20to%20JavaScript
 		JavaScript.getCurrent().addFunction("notify", new JavaScriptFunction() {
             public void call(JSONArray arguments) throws JSONException {
