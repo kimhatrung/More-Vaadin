@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.vaadin.blog.js.JsLabel;
 import org.vaadin.wiki.css.RedButton;
+import org.vaadin.wiki.js.ct.ComplexTypesComponent;
 import org.vaadin.wiki.js.flot.JsFlot;
 import org.vaadin.wiki.js.flot.JsFlot2;
 import org.vaadin.wiki.js.ga.Analytics;
@@ -99,5 +100,10 @@ public class ExampleUI extends UI {
 						"javascript:(function(){com.example.api.notify(prompt('Message'),2);})();"
 				)
 		));
+		
+		// complex type example
+		ComplexTypesComponent complexTypesComponent = new ComplexTypesComponent();
+		complexTypesComponent.sendComplexTypes();
+		layout.addComponent(complexTypesComponent);
 	}
 }
