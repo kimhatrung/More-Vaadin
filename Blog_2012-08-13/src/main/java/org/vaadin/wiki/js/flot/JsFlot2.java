@@ -1,4 +1,4 @@
-package org.vaadin.wiki.flot;
+package org.vaadin.wiki.js.flot;
 
 import java.util.ArrayList;
 import java.util.Arrays;

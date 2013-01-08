@@ -1,4 +1,4 @@
-package org.vaadin.wiki.ga;
+package org.vaadin.wiki.js.ga;
 
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.server.AbstractJavaScriptExtension;

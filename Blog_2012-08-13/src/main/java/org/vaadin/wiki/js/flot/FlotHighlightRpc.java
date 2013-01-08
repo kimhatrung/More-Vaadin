@@ -1,4 +1,4 @@
-package org.vaadin.wiki.flot;
+package org.vaadin.wiki.js.flot;
 
 import com.vaadin.shared.communication.ClientRpc;
 

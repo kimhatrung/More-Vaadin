@@ -1,4 +1,4 @@
-org_vaadin_wiki_flot_JsFlot = function() {
+org_vaadin_wiki_js_flot_JsFlot = function() {
 	var element = $(this.getElement());
 
 	this.onStateChange = function() {

@@ -1,4 +1,4 @@
-window.org_vaadin_wiki_flot_JsFlot2 = function() {
+window.org_vaadin_wiki_js_flot_JsFlot2 = function() {
 	
 	/*
     var element = $(this.getElement());

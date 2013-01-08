@@ -1,4 +1,4 @@
-org_vaadin_blog_JsLabel = function() {
+org_vaadin_blog_js_JsLabel = function() {
 	var e = this.getElement();
 	
 	this.onStateChange = function() {

@@ -2,11 +2,11 @@ package org.vaadin.example;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.vaadin.blog.JsLabel;
+import org.vaadin.blog.js.JsLabel;
 import org.vaadin.wiki.css.RedButton;
-import org.vaadin.wiki.flot.JsFlot;
-import org.vaadin.wiki.flot.JsFlot2;
-import org.vaadin.wiki.ga.Analytics;
+import org.vaadin.wiki.js.flot.JsFlot;
+import org.vaadin.wiki.js.flot.JsFlot2;
+import org.vaadin.wiki.js.ga.Analytics;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;

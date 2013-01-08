@@ -1,4 +1,4 @@
-package org.vaadin.blog;
+package org.vaadin.blog.js;
 
 import com.vaadin.shared.ui.JavaScriptComponentState;
 

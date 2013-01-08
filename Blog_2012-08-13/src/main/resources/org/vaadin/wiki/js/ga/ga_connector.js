@@ -6,7 +6,7 @@ window._gaq = window._gaq || [];
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
   
-window.org_vaadin_wiki_ga_Analytics = function() {
+window.org_vaadin_wiki_js_ga_Analytics = function() {
     this.pushCommand = function(command) {
         _gaq.push(command);
     }
