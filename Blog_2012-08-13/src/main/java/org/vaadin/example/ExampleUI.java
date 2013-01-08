@@ -5,16 +5,19 @@ import org.json.JSONException;
 import org.vaadin.blog.JsLabel;
 import org.vaadin.wiki.css.RedButton;
 import org.vaadin.wiki.flot.JsFlot;
+import org.vaadin.wiki.flot.JsFlot2;
 import org.vaadin.wiki.ga.Analytics;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.JavaScript;
 import com.vaadin.ui.JavaScriptFunction;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class ExampleUI extends UI {
 	
@@ -54,6 +57,8 @@ public class ExampleUI extends UI {
 						}
 					}
 				});
+		
+		// JsFlot example
 
 		final VerticalLayout layout = new VerticalLayout();
 		setContent(layout);
@@ -68,7 +73,26 @@ public class ExampleUI extends UI {
 
 		layout.addComponent(flot);
 		
+		// JsFlot2 example
+		
+        final JsFlot2 jsFlot2 = new JsFlot2();
+        jsFlot2.setHeight("300px");
+        jsFlot2.setWidth("400px");
+
+        jsFlot2.addSeries(1, 2, 4, 8, 16);
+        layout.addComponent(jsFlot2);
+
+        layout.addComponent(new Button("Highlight point", new Button.ClickListener() {
+            public void buttonClick(ClickEvent event) {
+                jsFlot2.highlight(0, 3);
+            }
+        }));
+		
+		// red button example
+		
 		layout.addComponent(new RedButton("css styled"));
+		
+		// js call/api example
 		
 		layout.addComponent(new Link("Send message",
 				new ExternalResource(
