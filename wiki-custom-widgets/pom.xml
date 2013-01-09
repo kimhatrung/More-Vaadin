@@ -11,7 +11,7 @@
 	<artifactId>wiki-custom-widgets</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>https://vaadin.com/blog/-/blogs/vaadin-7-loves-javascript-components</name>
+	<name>https://vaadin.com/wiki/-/wiki/Main/Creating%20a%20simple%20component</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.vaadin</groupId>
@@ -90,7 +90,7 @@
 					</hostedWebapp>
 					<noServer>true</noServer>
 					<!-- Remove draftCompile when project is ready -->
-					<draftCompile>false</draftCompile>
+					<draftCompile>true</draftCompile>
 					<compileReport>true</compileReport>
 					<!-- style>OBF</style -->
 					<style>PRETTY</style>
