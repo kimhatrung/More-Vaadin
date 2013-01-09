@@ -1,4 +1,4 @@
-package org.vaadin.wiki.cc.simple.ui.client;
+package org.vaadin.wiki.cc.simple.client.ui;
 
 import com.google.gwt.user.client.ui.Label;
 

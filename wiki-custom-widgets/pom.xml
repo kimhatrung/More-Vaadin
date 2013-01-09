@@ -20,6 +20,7 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
+			<scope>privided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>

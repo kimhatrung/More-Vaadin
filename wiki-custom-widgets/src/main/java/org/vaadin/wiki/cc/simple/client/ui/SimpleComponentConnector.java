@@ -1,6 +1,5 @@
-package org.vaadin.wiki.cc.simple.ui.client;
+package org.vaadin.wiki.cc.simple.client.ui;
 
-import org.vaadin.wiki.cc.simple.shared.SimpleComponentState;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Widget;

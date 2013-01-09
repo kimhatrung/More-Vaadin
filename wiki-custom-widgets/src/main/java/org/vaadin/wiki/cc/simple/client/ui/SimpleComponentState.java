@@ -1,4 +1,4 @@
-package org.vaadin.wiki.cc.simple.shared;
+package org.vaadin.wiki.cc.simple.client.ui;
 
 import com.vaadin.shared.AbstractComponentState;
 
