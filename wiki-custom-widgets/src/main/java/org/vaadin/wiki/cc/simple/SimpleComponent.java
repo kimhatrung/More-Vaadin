@@ -1,6 +1,6 @@
 package org.vaadin.wiki.cc.simple;
 
-import org.vaadin.wiki.cc.simple.client.ui.SimpleComponentState;
+import org.vaadin.wiki.cc.simple.shared.SimpleComponentState;
 
 import com.vaadin.ui.AbstractComponent;
 

@@ -1,4 +1,4 @@
-package org.vaadin.wiki.cc.simple.client.ui;
+package org.vaadin.wiki.cc.simple.shared;
 
 import com.vaadin.shared.AbstractComponentState;
 import com.vaadin.shared.annotations.DelegateToWidget;
