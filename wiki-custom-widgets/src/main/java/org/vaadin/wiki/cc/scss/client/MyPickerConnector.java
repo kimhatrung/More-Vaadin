@@ -1,6 +1,7 @@
 package org.vaadin.wiki.cc.scss.client;
 
 import org.vaadin.wiki.cc.scss.MyPicker;
+import org.vaadin.wiki.cc.scss.shared.MyPickerState;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Widget;
@@ -20,4 +21,8 @@ public class MyPickerConnector extends AbstractComponentConnector {
 		return (MyPickerWidget) super.getWidget();
 	}
 	
+	@Override
+	public MyPickerState getState() {
+		return (MyPickerState) super.getState();
+	}
 }

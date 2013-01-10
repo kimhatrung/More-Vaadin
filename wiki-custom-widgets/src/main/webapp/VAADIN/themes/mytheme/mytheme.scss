@@ -21,6 +21,8 @@
 }
  */
 
+// static button text '...'
+/*
 .mypicker {
 	white-space: nowrap;
 	padding-right: 23px;
@@ -34,6 +36,27 @@
 	width: 15px;
 	text-align: center;
 	margin-right: -23px;
+}
+.mypicker.v-has-width > .mypicker-field {
+	width: 100%;
+}
+.mypicker-field {
+	-moz-box-sizing: border-box;
+	-webkit-boz-sizing: border-box;
+	box-sizing: border-box;
+}
+ */
+ 
+// variable button text
+.mypicker {
+	white-space: nowrap;
+}
+.mypicker-button {
+	// just to see the theme change right away
+	color: red;
+	display: inline-block;
+	border: 1px solid black;
+	padding: 3px;
 }
 .mypicker.v-has-width > .mypicker-field {
 	width: 100%;

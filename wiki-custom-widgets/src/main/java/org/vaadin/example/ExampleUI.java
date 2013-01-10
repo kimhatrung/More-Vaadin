@@ -7,6 +7,7 @@ import org.vaadin.wiki.cc.delayed.CapsLockWarningWithRpc;
 import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.gflot.LinePlot;
 import org.vaadin.wiki.cc.scss.MyPicker;
+import org.vaadin.wiki.cc.scss.MyPicker2;
 import org.vaadin.wiki.cc.simple.SimpleComponent;
 
 import com.vaadin.annotations.Theme;
@@ -72,6 +73,14 @@ public class ExampleUI extends UI {
 		picker.setWidth(110, Unit.PIXELS);
 		picker.setCaption("scss/css example");
 		layout.addComponent(picker);
+		
+		// scss/css example with variable button text
+		final MyPicker2 picker2 = new MyPicker2();
+		// make it smaller to see the effects of scss
+		picker2.setWidth(110, Unit.PIXELS);
+		picker2.setCaption("scss/css example with variable button text");
+		picker2.setButtonText("more text ...");
+		layout.addComponent(picker2);
 		
 		// simple component container example
 		final SimpleComponentContainer container = new SimpleComponentContainer();

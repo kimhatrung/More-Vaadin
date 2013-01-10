@@ -1,6 +1,7 @@
 package org.vaadin.wiki.cc.scss.client;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
@@ -33,4 +34,28 @@ public class MyPickerWidget extends ComplexPanel {
 			}
 		});
 	}
+	
+	public void setButtonText(String buttonText) {
+		if (buttonText == null || buttonText.length() == 0) {
+			buttonText = "...";
+		}
+		button.setText(buttonText);
+	}
+	
+	public void setButtonText(String buttonText, boolean adjustSpace) {
+		if (buttonText == null || buttonText.length() == 0) {
+			buttonText = "...";
+		}
+		button.setText(buttonText);
+
+		if (adjustSpace) {
+			adjustButtonSpace(button.getOffsetWidth());
+		}
+	}
+
+	public void adjustButtonSpace(int width) {
+		getElement().getStyle().setPaddingRight(width, Unit.PX);
+		button.getElement().getStyle().setMarginRight(-width, Unit.PX);
+	}
+	    
 }
