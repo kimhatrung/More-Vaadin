@@ -1,12 +1,14 @@
 package org.vaadin.wiki.cc.simple.client.ui;
 
 
-import org.vaadin.wiki.cc.simple.shared.SimpleComponentServerRpc;
+import org.vaadin.wiki.cc.simple.shared.SimpleComponentToClientRpc;
+import org.vaadin.wiki.cc.simple.shared.SimpleComponentToServerRpc;
 import org.vaadin.wiki.cc.simple.shared.SimpleComponentState;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.MouseEventDetailsBuilder;
 import com.vaadin.client.communication.RpcProxy;
@@ -18,9 +20,16 @@ import com.vaadin.shared.ui.Connect;
 @Connect(org.vaadin.wiki.cc.simple.SimpleComponent.class)
 public class SimpleComponentConnector extends AbstractComponentConnector {
 	
-	private SimpleComponentServerRpc rpc = RpcProxy.create(SimpleComponentServerRpc.class, this);
+	private SimpleComponentToServerRpc rpc = RpcProxy.create(SimpleComponentToServerRpc.class, this);
 	
 	public SimpleComponentConnector() {
+		registerRpc(SimpleComponentToClientRpc.class, new SimpleComponentToClientRpc() {
+			
+			@Override
+			public void alert(String message) {
+				Window.alert(message);
+			}
+		});
 		getWidget().addClickHandler(new ClickHandler() {
 			
 			@Override
