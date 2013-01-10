@@ -51,9 +51,15 @@
 					<filesets>
 						<fileset>
 							<directory>${basedir}/src/main/webapp/VAADIN</directory>
+							<excludes>
+								<exclude>themes/**/*</exclude>
+							</excludes>
 						</fileset>
 						<fileset>
 							<directory>${basedir}/target/wiki-custom-widgets-1.0.0/VAADIN</directory>
+							<excludes>
+								<exclude>themes/**/*</exclude>
+							</excludes>
 						</fileset>
 					</filesets>
 				</configuration>

@@ -1,0 +1,47 @@
+// https://vaadin.com/wiki/-/wiki/Main/Creating%20a%20theme%20using%20sass
+@import "../reindeer/reindeer.scss";
+
+@mixin mytheme {
+	@include reindeer;
+
+	// your styles go here
+
+// https://vaadin.com/wiki/-/wiki/Main/Widget%20styling%20using%20only%20CSS
+// basic styling
+/*
+.mypicker {
+	white-space: nowrap;
+}
+.mypicker-button {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 3px;
+	width: 15px;
+	text-align: center;
+}
+ */
+
+.mypicker {
+	white-space: nowrap;
+	padding-right: 23px;
+}
+.mypicker-button {
+	// just to see the theme change right away
+	color: red;
+	display: inline-block;
+	border: 1px solid black;
+	padding: 3px;
+	width: 15px;
+	text-align: center;
+	margin-right: -23px;
+}
+.mypicker.v-has-width > .mypicker-field {
+	width: 100%;
+}
+.mypicker-field {
+	-moz-box-sizing: border-box;
+	-webkit-boz-sizing: border-box;
+	box-sizing: border-box;
+}
+	
+}

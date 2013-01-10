@@ -1,0 +1,6 @@
+// https://vaadin.com/wiki/-/wiki/Main/Creating%20a%20theme%20using%20sass
+@import "mytheme.scss";
+
+.mytheme {
+	@include mytheme;
+}
