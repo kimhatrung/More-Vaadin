@@ -1,6 +1,7 @@
 package org.vaadin.example;
 
 import org.vaadin.wiki.cc.delayed.CapsLockWarningWithRpc;
+import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.simple.SimpleComponent;
 
 import com.vaadin.server.VaadinRequest;
@@ -30,5 +31,11 @@ public class ExampleUI extends UI {
 		// password extension example (delayed, caps lock warning)
 		final PasswordField f1 = new PasswordField("secret:");
 		layout.addComponent(f1);
+		
+		// dynamically update example (Addition)
+		final Addition add = new Addition();
+		add.setTerm1(10);
+		add.setTerm1(22);
+		layout.addComponent(add);
 	}
 }
