@@ -1,17 +1,26 @@
 package org.vaadin.example;
 
+import java.util.Random;
+
+import org.vaadin.wiki.cc.container.SimpleComponentContainer;
 import org.vaadin.wiki.cc.delayed.CapsLockWarningWithRpc;
 import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.gflot.LinePlot;
 import org.vaadin.wiki.cc.simple.SimpleComponent;
 
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class ExampleUI extends UI {
+	
+	private static final Random RANDOM_GENERATOR = new Random();
 	
 	@Override
 	public void init(final VaadinRequest request) {
@@ -53,5 +62,28 @@ public class ExampleUI extends UI {
 		plot.addSeries("1. Serie", "red", new Float[] { 0.0f, 1.0f, 2.0f, 4.0f, 8.0f});
 		plot.addSeries("2. Serie", "blue", new Float[] { 0.0f, 1.0f, 2.0f, 3.0f, 4.0f});
 		layout.addComponent(plot);
+		
+		// simple component container example
+		final SimpleComponentContainer container = new SimpleComponentContainer();
+        layout.addComponent(container);
+        container.addComponent(new Label(
+                "Click the button to add components to the WidgetContainer."));
+        Button button = new Button("Add more components", new Button.ClickListener() {
+
+            @Override
+            public void buttonClick(ClickEvent event) {
+                int random = RANDOM_GENERATOR.nextInt(3);
+                final Component component;
+                if (random % 3 == 0) {
+                    component = new Label("A new label");
+                } else if (random % 3 == 1) {
+                    component = new Button("A button!");
+                } else {
+                    component = new CheckBox("A textfield");
+                }
+                container.addComponent(component);
+            }
+        });
+        layout.addComponent(button);		
 	}
 }
