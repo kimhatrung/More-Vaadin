@@ -13,7 +13,7 @@
 		</init-param>
 		<init-param>
 			<param-name>widgetset</param-name>
-			<param-value>org.vaadin.wiki.cc.simple.SimpleComponentWidgetset</param-value>
+			<param-value>org.vaadin.wiki.cc.CustomComponentWidgetset</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
