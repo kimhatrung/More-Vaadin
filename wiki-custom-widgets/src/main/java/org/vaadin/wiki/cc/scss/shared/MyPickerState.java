@@ -7,5 +7,8 @@ public class MyPickerState extends AbstractComponentState {
 	
 	@DelegateToWidget("setButtonText")
 	public String customButtonText;
+	
+	@DelegateToWidget("setText")
+	public String customText;
 
 }

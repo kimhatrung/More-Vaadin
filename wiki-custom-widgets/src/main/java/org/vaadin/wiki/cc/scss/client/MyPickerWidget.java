@@ -35,6 +35,10 @@ public class MyPickerWidget extends ComplexPanel {
 		});
 	}
 	
+	public void setText(String text) {
+		textBox.setText(text);
+	}
+	
 	public void setButtonText(String buttonText) {
 		if (buttonText == null || buttonText.length() == 0) {
 			buttonText = "...";

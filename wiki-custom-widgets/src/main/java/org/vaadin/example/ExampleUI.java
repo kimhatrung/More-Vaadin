@@ -8,6 +8,7 @@ import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.gflot.LinePlot;
 import org.vaadin.wiki.cc.scss.MyPicker;
 import org.vaadin.wiki.cc.scss.MyPicker2;
+import org.vaadin.wiki.cc.scss.MyPicker3;
 import org.vaadin.wiki.cc.simple.SimpleComponent;
 
 import com.vaadin.annotations.Theme;
@@ -81,6 +82,15 @@ public class ExampleUI extends UI {
 		picker2.setCaption("scss/css example with variable button text");
 		picker2.setButtonText("more text ...");
 		layout.addComponent(picker2);
+		
+		// scss/css example with complex layout
+		final MyPicker3 picker3 = new MyPicker3();
+		// make it smaller to see the effects of scss
+		picker3.setWidth(110, Unit.PIXELS);
+		picker3.setCaption("scss/css example with complex layout");
+		picker3.setButtonText("more text ...");
+		picker3.setText("Dynamic text also in the text field");
+		layout.addComponent(picker3);
 		
 		// simple component container example
 		final SimpleComponentContainer container = new SimpleComponentContainer();
