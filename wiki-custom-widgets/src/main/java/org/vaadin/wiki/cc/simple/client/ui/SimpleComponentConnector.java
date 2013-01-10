@@ -15,6 +15,8 @@ public class SimpleComponentConnector extends AbstractComponentConnector {
 		return (SimpleComponentState) super.getState();
 	}
 
+	// Either this or @DelegateToWidget
+	/*
 	@Override
 	public void onStateChanged(StateChangeEvent stateChangeEvent) {
 		super.onStateChanged(stateChangeEvent);
@@ -22,6 +24,7 @@ public class SimpleComponentConnector extends AbstractComponentConnector {
 		final String text = getState().text;
 		getWidget().setText(text);
 	}
+	*/
 
 	@Override
 	protected Widget createWidget() {
