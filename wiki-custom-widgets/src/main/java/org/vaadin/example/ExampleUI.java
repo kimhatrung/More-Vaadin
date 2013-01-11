@@ -96,6 +96,8 @@ public class ExampleUI extends UI {
 		// GWT cell list example
 		final GwtCellListShowcase contacts = new GwtCellListShowcase();
 		contacts.setCaption("GWT cell list example");
+		// Restrict height to enable scrolling
+		// contacts.setHeight(300, Unit.PIXELS);
 		layout.addComponent(contacts);
 		
 		// simple component container example
