@@ -6,6 +6,7 @@ import org.vaadin.wiki.cc.container.SimpleComponentContainer;
 import org.vaadin.wiki.cc.delayed.CapsLockWarningWithRpc;
 import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.gflot.LinePlot;
+import org.vaadin.wiki.cc.gwt.GwtCellListShowcase;
 import org.vaadin.wiki.cc.scss.MyPicker;
 import org.vaadin.wiki.cc.scss.MyPicker2;
 import org.vaadin.wiki.cc.scss.MyPicker3;
@@ -91,6 +92,11 @@ public class ExampleUI extends UI {
 		picker3.setButtonText("more text ...");
 		picker3.setText("Dynamic text also in the text field");
 		layout.addComponent(picker3);
+		
+		// GWT cell list example
+		final GwtCellListShowcase contacts = new GwtCellListShowcase();
+		contacts.setCaption("GWT cell list example");
+		layout.addComponent(contacts);
 		
 		// simple component container example
 		final SimpleComponentContainer container = new SimpleComponentContainer();
