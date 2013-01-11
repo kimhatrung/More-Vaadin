@@ -121,6 +121,9 @@
 							<!-- if you don't specify any modules, the plugin will find them -->
 							<!-- <modules> <module>com.vaadin.demo.mobilemail.gwt.ColorPickerWidgetSet</module> 
 								</modules> -->
+							<modules>
+								<module>org.vaadin.wiki.cc.CustomComponentWidgetset</module>
+							</modules>	
 						</configuration>
 						<goals>
 							<goal>resources</goal>
