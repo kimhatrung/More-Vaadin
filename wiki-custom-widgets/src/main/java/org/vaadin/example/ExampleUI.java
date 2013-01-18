@@ -18,7 +18,9 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
 import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
@@ -28,16 +30,40 @@ public class ExampleUI extends UI {
 	
 	private static final Random RANDOM_GENERATOR = new Random();
 	
+	//
+	
+	private TabSheet tabs;
+	
+	public ExampleUI() {
+	}
+	
 	@Override
 	public void init(final VaadinRequest request) {
 		// register extension for password field
 		addExtension(new CapsLockWarningWithRpc());
 		
-		final VerticalLayout layout = new VerticalLayout();
-		setContent(layout);
+		final TabSheet tabs = new TabSheet();
+		setContent(tabs);
+		tabs.addTab(initHello(), "Hello");
+		tabs.addTab(initSimple(), "Simple");
+		tabs.addTab(initGFlot(), "GFlot");
+		tabs.addTab(initContainer(), "Container");
+		tabs.addTab(initScss(), "Scss");
+		tabs.addTab(initGWT1(), "GWT1");
+		tabs.addTab(initGWT2(), "GWT2");
+	}
+	
+	private Component initHello() {
+		final Layout layout = new VerticalLayout();
 		
 		final Label l1 = new Label("Hello World!");
 		layout.addComponent(l1);
+				
+		return layout;
+	}
+
+	private Component initSimple() {
+		final Layout layout = new VerticalLayout();
 		
 		// simple component example
 		final Label l2 = new Label("simple component example");
@@ -60,14 +86,11 @@ public class ExampleUI extends UI {
 		add.setTerm1(22);
 		layout.addComponent(add);
 		
-		// GFlot external GWT library example
-		final LinePlot plot = new LinePlot();
-		plot.setHeight(100, Unit.PIXELS);
-		plot.setWidth(100, Unit.PIXELS);
-		plot.setCaption("GFlot external GWT library example");
-		plot.addSeries("1. Serie", "red", new Float[] { 0.0f, 1.0f, 2.0f, 4.0f, 8.0f});
-		plot.addSeries("2. Serie", "blue", new Float[] { 0.0f, 1.0f, 2.0f, 3.0f, 4.0f});
-		layout.addComponent(plot);
+		return layout;
+	}
+	
+	private Component initScss() {
+		final Layout layout = new VerticalLayout();
 		
 		// scss/css example
 		final MyPicker picker = new MyPicker();
@@ -92,13 +115,27 @@ public class ExampleUI extends UI {
 		picker3.setButtonText("more text ...");
 		picker3.setText("Dynamic text also in the text field");
 		layout.addComponent(picker3);
+				
+		return layout;
+	}
+
+	private Component initGFlot() {
+		final Layout layout = new VerticalLayout();
 		
-		// GWT cell list example
-		final GwtCellListShowcase contacts = new GwtCellListShowcase();
-		contacts.setCaption("GWT cell list example");
-		// Restrict height to enable scrolling
-		// contacts.setHeight(300, Unit.PIXELS);
-		layout.addComponent(contacts);
+		// GFlot external GWT library example
+		final LinePlot plot = new LinePlot();
+		layout.addComponent(plot);
+		plot.setHeight(100, Unit.PIXELS);
+		plot.setWidth(100, Unit.PIXELS);
+		plot.setCaption("GFlot external GWT library example");
+		plot.addSeries("1. Serie", "red", new Float[] { 0.0f, 1.0f, 2.0f, 4.0f, 8.0f});
+		plot.addSeries("2. Serie", "blue", new Float[] { 0.0f, 1.0f, 2.0f, 3.0f, 4.0f});
+				
+		return layout;
+	}
+
+	private Component initContainer() {
+		final Layout layout = new VerticalLayout();
 		
 		// simple component container example
 		final SimpleComponentContainer container = new SimpleComponentContainer();
@@ -122,5 +159,28 @@ public class ExampleUI extends UI {
             }
         });
         layout.addComponent(button);		
+		
+		return layout;
 	}
+
+	private Component initGWT1() {
+		final Layout layout = new VerticalLayout();
+		
+		// GWT cell list example
+		final GwtCellListShowcase contacts = new GwtCellListShowcase();
+		contacts.setCaption("GWT cell list example");
+		// Restrict height to enable scrolling
+		// contacts.setHeight(300, Unit.PIXELS);
+		layout.addComponent(contacts);
+				
+		return layout;
+	}
+
+	private Component initGWT2() {
+		final Layout layout = new VerticalLayout();
+		
+		
+		return layout;
+	}
+
 }
