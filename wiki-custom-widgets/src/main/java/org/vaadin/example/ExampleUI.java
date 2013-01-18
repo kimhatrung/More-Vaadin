@@ -6,6 +6,7 @@ import org.vaadin.wiki.cc.container.SimpleComponentContainer;
 import org.vaadin.wiki.cc.delayed.CapsLockWarningWithRpc;
 import org.vaadin.wiki.cc.dynupdate.Addition;
 import org.vaadin.wiki.cc.gflot.LinePlot;
+import org.vaadin.wiki.cc.gwt.EndlessScrollList;
 import org.vaadin.wiki.cc.gwt.GwtCellListShowcase;
 import org.vaadin.wiki.cc.scss.MyPicker;
 import org.vaadin.wiki.cc.scss.MyPicker2;
@@ -13,6 +14,7 @@ import org.vaadin.wiki.cc.scss.MyPicker3;
 import org.vaadin.wiki.cc.simple.SimpleComponent;
 
 import com.vaadin.annotations.Theme;
+import com.vaadin.data.util.IndexedContainer;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
@@ -179,6 +181,9 @@ public class ExampleUI extends UI {
 	private Component initGWT2() {
 		final Layout layout = new VerticalLayout();
 		
+		final EndlessScrollList esl = new EndlessScrollList(new IndexedContainer());
+		esl.setCaption("EndlessScrollList (vaadinzied GWT cell list)");
+		layout.addComponent(esl);
 		
 		return layout;
 	}
