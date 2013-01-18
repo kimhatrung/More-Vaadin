@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.morevaadin.vaadin7.html</groupId>
 	<artifactId>blog</artifactId>
-	<version>1.0.0</version>
+	<version>1.6.0</version>
 	<packaging>war</packaging>
 	<name>https://vaadin.com/blog/-/blogs/vaadin-7-loves-javascript-components</name>
 	<dependencies>
