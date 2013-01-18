@@ -6,6 +6,10 @@ import com.vaadin.shared.AbstractComponentState;
 
 public class ScrollListState extends AbstractComponentState {
 	
+    {
+        primaryStyleName = "v-endlessscrolllist";
+    }
+    
 	public int chuckSize;
 	
 	public Map<Integer,Object> items;

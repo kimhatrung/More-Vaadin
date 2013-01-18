@@ -75,7 +75,9 @@
 
 // EndlessScrollList Widget
 .v-endlessscrolllist {
-	// height: 300px;
+	// height: 100%;
+	height: 300px;
+	// overflow: hidden;
 	// overflow: scroll;
 }
 

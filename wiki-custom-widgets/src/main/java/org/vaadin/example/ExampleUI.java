@@ -180,9 +180,13 @@ public class ExampleUI extends UI {
 
 	private Component initGWT2() {
 		final Layout layout = new VerticalLayout();
+		layout.setSizeUndefined();
+		layout.setHeight(600, Unit.PIXELS);
 		
 		final EndlessScrollList esl = new EndlessScrollList(new IndexedContainer());
 		esl.setCaption("EndlessScrollList (vaadinzied GWT cell list)");
+		// do this with css/scss
+		// esl.setHeight(400, Unit.PIXELS);
 		layout.addComponent(esl);
 		
 		return layout;
