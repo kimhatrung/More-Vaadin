@@ -1,6 +1,6 @@
 package org.vaadin.wiki.cc.gwt.client;
 
-import org.vaadin.wiki.cc.gwt.client.ContactDatabase.ContactInfo;
+import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Document;
@@ -71,15 +71,14 @@ public class GwtCellListShowcaseWidget extends ComplexPanel {
 		// Set a key provider that provides a unique key for each contact. If key is
 		// used to identify contacts when fields (such as the name and address)
 		// change.
-		cellList = new CellList<ContactInfo>(contactCell,
-				ContactDatabase.ContactInfo.KEY_PROVIDER);
+		cellList = new CellList<ContactInfo>(contactCell, ContactInfo.KEY_PROVIDER);
 		cellList.setPageSize(30);
 		cellList.setKeyboardPagingPolicy(KeyboardPagingPolicy.INCREASE_RANGE);
 		cellList.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.BOUND_TO_SELECTION);
 
 		// Add a selection model so we can select cells.
 		final SingleSelectionModel<ContactInfo> selectionModel = new SingleSelectionModel<ContactInfo>(
-				ContactDatabase.ContactInfo.KEY_PROVIDER);
+				ContactInfo.KEY_PROVIDER);
 		cellList.setSelectionModel(selectionModel);
 		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
 			public void onSelectionChange(SelectionChangeEvent event) {

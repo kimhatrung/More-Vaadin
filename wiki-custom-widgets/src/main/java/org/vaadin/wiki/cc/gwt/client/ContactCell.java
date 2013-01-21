@@ -15,7 +15,7 @@
  */
 package org.vaadin.wiki.cc.gwt.client;
 
-import org.vaadin.wiki.cc.gwt.client.ContactDatabase.ContactInfo;
+import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.resources.client.ImageResource;
