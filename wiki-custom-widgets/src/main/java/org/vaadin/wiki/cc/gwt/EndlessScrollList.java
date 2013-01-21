@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
+
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
 import com.vaadin.event.Action;
@@ -22,6 +24,7 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
 	, Container.Ordered, HasComponents
 	/* , Container.Sortable, DragSource, DropTarget, ItemClickNotifier */
 {
+	
 	private final Ordered container;
 	
     /**
@@ -38,8 +41,17 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
      * Set of visible components - the is used for needsRepaint calculation.
      */
     private HashSet<Component> visibleComponents = null;
+    
+    private ScrollListToServerRpc rpc = new ScrollListToServerRpc() {
+		
+		@Override
+		public void after(int startIndex, int minSize) {
+			System.err.println("after(" + startIndex + ", " + minSize + ")");
+		}
+	};
 
 	public EndlessScrollList(Ordered container) {
+		registerRpc(rpc);
 		this.container = container;
 	}
 

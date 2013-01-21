@@ -3,6 +3,10 @@ package org.vaadin.wiki.cc.gwt.client;
 import java.util.Iterator;
 
 import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
+import org.vaadin.wiki.cc.gwt.shared.ScrollListState;
+import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
+import org.vaadin.wiki.cc.gwt.vaadin.ScrollListDataProvider;
+import org.vaadin.wiki.cc.simple.shared.SimpleComponentToServerRpc;
 
 import com.google.gwt.event.dom.client.BlurHandler;
 import com.google.gwt.event.dom.client.FocusHandler;
@@ -22,11 +26,14 @@ import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.WidgetCollection;
+import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.HasRows;
+import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.vaadin.client.ApplicationConnection;
 import com.vaadin.client.Focusable;
+import com.vaadin.client.communication.RpcProxy;
 import com.vaadin.client.ui.Action;
 import com.vaadin.client.ui.ActionOwner;
 import com.vaadin.client.ui.TreeAction;
@@ -44,7 +51,7 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 	private static final String CLASSNAME = "v-endlessscrolllist";
 	
 	//
-
+	
 	/**
 	 * The increment size.
 	 */
@@ -63,6 +70,8 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 	/* Vaadin stuff */
 
 	private ApplicationConnection client;
+	
+	private ScrollListToServerRpc rpc;
 
 	private String[] bodyActionKeys;
 
@@ -70,8 +79,20 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 
 	private WidgetCollection children = new WidgetCollection(this);
 	
-	// ???
+	/**
+	 * The list of cells that are displayed by this widget.
+	 */
 	private CellList<ContactInfo> cellList;
+
+	/**
+	 * The provider that holds the list of contacts in the database.
+	 */
+	private ScrollListDataProvider<ContactInfo> dataProvider;
+	
+	/**
+	 * Widget state.
+	 */
+	private ScrollListState state;
 
 	public EndlessScrollListWidget() {
 		// setStyleName(CLASSNAME);
@@ -106,8 +127,6 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 				}
 			}
 		});
-		
-		onInitialize();
 	}
 
 	/**
@@ -144,7 +163,10 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 		// Widget widget = uiBinder.createAndBindUi(this);
 
 		// Add the CellList to the data provider in the database.
-		ContactDatabase.get().addDataDisplay(cellList);
+		dataProvider = new ScrollListDataProvider(state, rpc);
+		// ContactDatabase.get().addDataDisplay(cellList);
+		dataProvider.addDataDisplay(cellList);
+		
 
 		// Set the cellList as the display of the pagers. This example has two
 		// pagers. pagerPanel is a scrollable pager that extends the range when the
@@ -193,8 +215,12 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 
 	/* Vaadin contract */
 
-	public void init(ApplicationConnection client) {
+	public void init(ApplicationConnection client, ScrollListToServerRpc rpc, ScrollListState state) {
 		this.client = client;
+		this.rpc = rpc;
+		this.state = state;
+		
+		onInitialize();
 	}
 
 	@Override

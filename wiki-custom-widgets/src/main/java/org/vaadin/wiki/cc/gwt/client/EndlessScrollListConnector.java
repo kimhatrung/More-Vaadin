@@ -2,24 +2,28 @@ package org.vaadin.wiki.cc.gwt.client;
 
 import org.vaadin.wiki.cc.gwt.EndlessScrollList;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListState;
+import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ComponentConnector;
 import com.vaadin.client.ConnectorHierarchyChangeEvent;
+import com.vaadin.client.communication.RpcProxy;
 import com.vaadin.client.ui.AbstractHasComponentsConnector;
 import com.vaadin.shared.ui.Connect;
 
 @Connect(EndlessScrollList.class)
 public class EndlessScrollListConnector extends AbstractHasComponentsConnector {
 	
+	private final ScrollListToServerRpc rpc = RpcProxy.create(ScrollListToServerRpc.class, this);
+
 	public EndlessScrollListConnector() {
 	}
 
     @Override
     protected void init() {
         super.init();
-        getWidget().init(getConnection());
+        getWidget().init(getConnection(), rpc, getState());
     }
 
 	@Override
