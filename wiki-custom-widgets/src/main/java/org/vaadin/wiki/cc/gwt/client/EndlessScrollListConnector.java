@@ -9,22 +9,23 @@ import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ComponentConnector;
 import com.vaadin.client.ConnectorHierarchyChangeEvent;
 import com.vaadin.client.communication.RpcProxy;
+import com.vaadin.client.communication.StateChangeEvent;
 import com.vaadin.client.ui.AbstractHasComponentsConnector;
 import com.vaadin.shared.ui.Connect;
 
 @Connect(EndlessScrollList.class)
 public class EndlessScrollListConnector extends AbstractHasComponentsConnector {
-	
+
 	private final ScrollListToServerRpc rpc = RpcProxy.create(ScrollListToServerRpc.class, this);
 
 	public EndlessScrollListConnector() {
 	}
 
-    @Override
-    protected void init() {
-        super.init();
-        getWidget().init(getConnection(), rpc, getState());
-    }
+	@Override
+	protected void init() {
+		super.init();
+		getWidget().init(getConnection(), rpc, getState());
+	}
 
 	@Override
 	protected Widget createWidget() {
@@ -35,7 +36,7 @@ public class EndlessScrollListConnector extends AbstractHasComponentsConnector {
 	public EndlessScrollListWidget getWidget() {
 		return (EndlessScrollListWidget) super.getWidget();
 	}
-	
+
 	@Override
 	public ScrollListState getState() {
 		return (ScrollListState) super.getState();
@@ -44,13 +45,19 @@ public class EndlessScrollListConnector extends AbstractHasComponentsConnector {
 	@Override
 	public void updateCaption(ComponentConnector connector) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onConnectorHierarchyChange(ConnectorHierarchyChangeEvent connectorHierarchyChangeEvent) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void onStateChanged(StateChangeEvent stateChangeEvent) {
+		super.onStateChanged(stateChangeEvent);
+		getWidget().onStateChanged(stateChangeEvent);
 	}
 
 }

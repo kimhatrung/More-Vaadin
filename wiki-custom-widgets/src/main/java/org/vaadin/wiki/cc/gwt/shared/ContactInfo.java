@@ -1,23 +1,12 @@
 package org.vaadin.wiki.cc.gwt.shared;
 
+import java.io.Serializable;
 import java.util.Date;
-
-import com.google.gwt.view.client.ProvidesKey;
 
 /**
  * Information about a contact.
  */
-public class ContactInfo implements Comparable<ContactInfo> {
-
-	/**
-	 * The key provider that provides the unique ID of a contact.
-	 */
-	public static final ProvidesKey<ContactInfo> KEY_PROVIDER = new ProvidesKey<ContactInfo>() {
-		@Override
-		public Object getKey(ContactInfo item) {
-			return item == null ? null : item.getId();
-		}
-	};
+public class ContactInfo implements Comparable<ContactInfo>, Serializable {
 
 	private static int nextId = 0;
 

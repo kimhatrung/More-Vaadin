@@ -183,7 +183,7 @@ public class ExampleUI extends UI {
 		layout.setSizeUndefined();
 		layout.setHeight(600, Unit.PIXELS);
 		
-		final EndlessScrollList esl = new EndlessScrollList(new IndexedContainer());
+		final EndlessScrollList esl = new EndlessScrollList(Containers.getInstance().getContactInfoContainer());
 		esl.setCaption("EndlessScrollList (vaadinzied GWT cell list)");
 		// do this with css/scss
 		// esl.setHeight(400, Unit.PIXELS);

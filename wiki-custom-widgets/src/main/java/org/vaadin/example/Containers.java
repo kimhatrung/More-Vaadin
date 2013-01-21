@@ -258,5 +258,15 @@ public class Containers {
 	private <T> T nextValue(T[] array) {
 		return array[RANDOM.nextInt(array.length)];
 	}
+	
+	public static ContactInfo fromContactInfoFromItem(Object itemId, Item item) {
+		final Category category = (Category) item.getItemProperty(PERSON_PROPERTY_CATEGORY).getValue();
+		final ContactInfo result = new ContactInfo(category);
+		result.setFirstName((String) item.getItemProperty(PERSON_PROPERTY_FIRSTNAME).getValue());
+		result.setLastName((String) item.getItemProperty(PERSON_PROPERTY_LASTNAME).getValue());
+		result.setAddress((String) item.getItemProperty(PERSON_PROPERTY_STREET).getValue());
+		result.setBirthday((Date) item.getItemProperty(PERSON_PROPERTY_BIRTHDAY).getValue());
+		return result;
+	}
 
 }

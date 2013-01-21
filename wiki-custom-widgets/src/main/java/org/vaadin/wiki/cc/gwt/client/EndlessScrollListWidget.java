@@ -34,6 +34,7 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.vaadin.client.ApplicationConnection;
 import com.vaadin.client.Focusable;
 import com.vaadin.client.communication.RpcProxy;
+import com.vaadin.client.communication.StateChangeEvent;
 import com.vaadin.client.ui.Action;
 import com.vaadin.client.ui.ActionOwner;
 import com.vaadin.client.ui.TreeAction;
@@ -143,14 +144,14 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 		// Set a key provider that provides a unique key for each contact. If key is
 		// used to identify contacts when fields (such as the name and address)
 		// change.
-		cellList = new CellList<ContactInfo>(contactCell, ContactInfo.KEY_PROVIDER);
+		cellList = new CellList<ContactInfo>(contactCell, ContactInfoKeyProvider.KEY_PROVIDER);
 		cellList.setPageSize(30);
 		cellList.setKeyboardPagingPolicy(KeyboardPagingPolicy.INCREASE_RANGE);
 		cellList.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.BOUND_TO_SELECTION);
 
 		// Add a selection model so we can select cells.
 		final SingleSelectionModel<ContactInfo> selectionModel = new SingleSelectionModel<ContactInfo>(
-				ContactInfo.KEY_PROVIDER);
+				ContactInfoKeyProvider.KEY_PROVIDER);
 		cellList.setSelectionModel(selectionModel);
 		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
 			public void onSelectionChange(SelectionChangeEvent event) {
@@ -307,6 +308,10 @@ public class EndlessScrollListWidget extends AbstractPager implements HasWidgets
 	@Override
 	protected void onRangeOrRowCountChanged() {
 		// TODO Auto-generated method stub
+	}
+
+	void onStateChanged(StateChangeEvent stateChangeEvent) {
+		dataProvider.onStateChanged(stateChangeEvent);
 	}
 
 }
