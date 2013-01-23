@@ -214,7 +214,7 @@ public class Containers {
 				item.getItemProperty(PERSON_PROPERTY_CATEGORY).setValue(contact.getCategory());
 				item.getItemProperty(PERSON_PROPERTY_FIRSTNAME).setValue(contact.getFirstName());
 				item.getItemProperty(PERSON_PROPERTY_LASTNAME).setValue(contact.getLastName());
-				item.getItemProperty(PERSON_PROPERTY_STREET).setValue(contact.getFirstName());
+				item.getItemProperty(PERSON_PROPERTY_STREET).setValue(contact.getAddress());
 				item.getItemProperty(PERSON_PROPERTY_BIRTHDAY).setValue(contact.getBirthday());
 			}
 		}

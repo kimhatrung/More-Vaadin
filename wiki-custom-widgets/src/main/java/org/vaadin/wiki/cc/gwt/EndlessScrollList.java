@@ -58,11 +58,11 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
 				items = new HashMap<Integer, ContactInfo>();
 				state.items = items;
 			}
+			if (minSize <= 0) {
+				// ???
+				minSize = 30;
+			}
 			if (state.chunkSize <= 0) {
-				if (minSize <= 0) {
-					// ???
-					minSize = 30;
-				}
 				state.chunkSize = minSize;
 			}
 			int idx;
@@ -70,9 +70,15 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
 				idx = startIndex + i;
 				final Integer index = Integer.valueOf(idx);
 				if (!items.containsKey(index)) {
-					final Object itemId = container.getIdByIndex(idx);
-					final Item item = container.getItem(itemId);
-					items.put(index, Containers.fromContactInfoFromItem(itemId, item));
+					try {
+						final Object itemId = container.getIdByIndex(idx);
+						final Item item = container.getItem(itemId);
+						items.put(index, Containers.fromContactInfoFromItem(itemId, item));
+					}
+					catch (IndexOutOfBoundsException e) {
+						// no such element in container
+						break;
+					}
 				}
 			}
 		}

@@ -48,7 +48,15 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 		synchronized (changedDisplays) {
 			changedDisplays.add(display);
 			start = idx;
-			len = display.getVisibleItemCount();
+			// ???
+			len = Math.min(display.getVisibleItemCount(), state.chunkSize);
+			if (len == 0) {
+				len = state.chunkSize;
+			}
+			if (len == 0) {
+				// ???
+				len = 30;
+			}
 		}
 		rpc.after(start, len);
 	}
