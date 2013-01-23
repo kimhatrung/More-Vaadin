@@ -13,14 +13,14 @@ public class Category implements Serializable {
 		this.displayName = displayName;
 	}
 	
-	Category() {
+	public Category() {
 	}
 
 	public String getDisplayName() {
 		return displayName;
 	}
 	
-	void setDisplayName(String displayName) {
+	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
 }

@@ -70,7 +70,8 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 				final List<T> list = new ArrayList<T>(len);
 				for (int i = 0; i < len; ++i) {
 					final int idx = i + start;
-					list.set(idx, (T) items.get(idx));
+					// list.set(idx, (T) items.get(idx));
+					list.add((T) items.get(idx));
 				}
 				for (HasData<T> display : changed) {
 					updateRowData(display, start, list);
