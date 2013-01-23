@@ -13,6 +13,6 @@ public class ScrollListState extends AbstractFieldState {
     
 	public int chunkSize;
 	
-	public Map<Integer,Object> items;
+	public Map<Integer,ContactInfo> items;
 
 }

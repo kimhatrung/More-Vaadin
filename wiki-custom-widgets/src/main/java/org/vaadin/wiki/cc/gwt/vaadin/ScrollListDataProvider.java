@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListState;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
 
@@ -34,7 +35,7 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 	@Override
 	protected void onRangeChanged(HasData<T> display) {
 		final Range range = display.getVisibleRange();
-		final Map<Integer, Object> items = state.items;
+		final Map<Integer, ContactInfo> items = state.items;
 		int idx = 0;
 		if (items != null) {
 			for (int i = 0; i < range.getLength(); ++i) {
@@ -64,7 +65,7 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 		}
 		changed.retainAll(getDataDisplays());
 		if (!changed.isEmpty()) {
-			final Map<Integer, Object> items = state.items;
+			final Map<Integer, ContactInfo> items = state.items;
 			if (items != null) {
 				final List<T> list = new ArrayList<T>(len);
 				for (int i = 0; i < len; ++i) {

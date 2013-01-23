@@ -19,9 +19,13 @@ public class ContactInfo implements Comparable<ContactInfo>, Serializable {
 	private String lastName;
 
 	public ContactInfo(Category category) {
+		this();
+		setCategory(category);
+	}
+	
+	ContactInfo() {
 		this.id = nextId;
 		nextId++;
-		setCategory(category);
 	}
 
 	@Override

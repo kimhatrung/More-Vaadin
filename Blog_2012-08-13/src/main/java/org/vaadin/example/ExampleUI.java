@@ -10,7 +10,7 @@ import org.vaadin.wiki.js.flot.JsFlot2;
 import org.vaadin.wiki.js.ga.Analytics;
 
 import com.vaadin.server.ExternalResource;
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.WrappedRequest;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.JavaScript;
 import com.vaadin.ui.JavaScriptFunction;
@@ -25,7 +25,7 @@ public class ExampleUI extends UI {
 	private Analytics googleAnalytics;
 	
 	@Override
-	public void init(final VaadinRequest request) {
+	public void init(final WrappedRequest request) {
 		googleAnalytics = new Analytics("test");
 		googleAnalytics.trackPageview("home");
 		addExtension(googleAnalytics);

@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import org.vaadin.example.Containers;
+import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListState;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
 
@@ -52,9 +53,9 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
 		public void after(int startIndex, int minSize) {
 			System.err.println("after(" + startIndex + ", " + minSize + ")");
 			final ScrollListState state = getState();
-			Map<Integer,Object> items = state.items;
+			Map<Integer, ContactInfo> items = state.items;
 			if (items == null) {
-				items = new HashMap<Integer, Object>();
+				items = new HashMap<Integer, ContactInfo>();
 				state.items = items;
 			}
 			if (state.chunkSize <= 0) {

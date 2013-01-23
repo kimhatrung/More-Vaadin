@@ -7,13 +7,20 @@ import java.io.Serializable;
  */
 public class Category implements Serializable {
 
-	private final String displayName;
+	private String displayName;
 
 	public Category(String displayName) {
 		this.displayName = displayName;
 	}
+	
+	Category() {
+	}
 
 	public String getDisplayName() {
 		return displayName;
+	}
+	
+	void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 }
