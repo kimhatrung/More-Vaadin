@@ -1,6 +1,7 @@
 package org.vaadin.wiki.cc.gwt.vaadin;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.vaadin.wiki.cc.gwt.shared.ContactInfo;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListState;
 import org.vaadin.wiki.cc.gwt.shared.ScrollListToServerRpc;
 
+import com.google.gwt.user.client.rpc.impl.RpcStatsContext;
 import com.google.gwt.view.client.AbstractDataProvider;
 import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.Range;
@@ -35,30 +37,39 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 	@Override
 	protected void onRangeChanged(HasData<T> display) {
 		final Range range = display.getVisibleRange();
+		start = range.getStart();
+		int l = range.getLength();
+		len = l;
 		final Map<Integer, ContactInfo> items = state.items;
 		int idx = 0;
 		if (items != null) {
 			for (int i = 0; i < range.getLength(); ++i) {
-				idx = i + range.getStart();
+				idx = i + start;
 				if (!items.containsKey(idx)) {
 					break;
 				}
+				--l;
 			}
 		}
-		synchronized (changedDisplays) {
-			changedDisplays.add(display);
-			start = idx;
+		if (l > 1) {
+			synchronized (changedDisplays) {
+				changedDisplays.add(display);
+			}
+			final int rpcStart = idx;
 			// ???
-			len = Math.min(display.getVisibleItemCount(), state.chunkSize);
-			if (len == 0) {
-				len = state.chunkSize;
+			int rpcLen = Math.min(l, state.chunkSize);
+			if (rpcLen == 0) {
+				rpcLen = state.chunkSize;
 			}
-			if (len == 0) {
+			if (rpcLen == 0) {
 				// ???
-				len = 30;
+				rpcLen = 30;
 			}
+			rpc.after(rpcStart, rpcLen);
 		}
-		rpc.after(start, len);
+		else {
+			update(Collections.singletonList(display), start, len);
+		}
 	}
 
 	public void onStateChanged(StateChangeEvent stateChangeEvent) {
@@ -70,9 +81,14 @@ public class ScrollListDataProvider<T> extends AbstractDataProvider<T> {
 			len = this.len;
 			this.start = -1;
 			this.len = 0;
+			changedDisplays.clear();
 		}
 		changed.retainAll(getDataDisplays());
-		if (!changed.isEmpty()) {
+		update(changed, start, len);
+	}
+	
+	private void update(List<HasData<T>> changed, int start, int len) {
+		if (!changed.isEmpty() && start >= 0 && len > 0) {
 			final Map<Integer, ContactInfo> items = state.items;
 			if (items != null) {
 				final List<T> list = new ArrayList<T>(len);
