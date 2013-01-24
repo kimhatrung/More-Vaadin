@@ -90,6 +90,18 @@ public class EndlessScrollList extends AbstractSelect implements Action.Containe
 	}
 
 	@Override
+	public void beforeClientResponse(boolean initial) {
+		super.beforeClientResponse(initial);
+		// ensure that there are at least some items in the list
+		// this is needed to ensure that the widget could be rendered
+		if (initial) {
+			if (getState().items == null || getState().items.isEmpty()) {
+				rpc.after(0, 0);
+			}
+		}
+	}
+
+	@Override
 	protected ScrollListState getState() {
 		return (ScrollListState) super.getState();
 	}
